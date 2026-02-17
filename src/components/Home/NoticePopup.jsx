@@ -18,9 +18,9 @@ export default function NoticePopup() {
 
     const closePopup = () => setIsOpen(false);
 
-    const hideFor7Days = () => {
-        const sevenDaysInMs = 7 * 24 * 60 * 60 * 1000;
-        const expiry = new Date().getTime() + sevenDaysInMs;
+    const hideFor24Hours = () => {
+        const oneDayInMs = 24 * 60 * 60 * 1000;
+        const expiry = new Date().getTime() + oneDayInMs;
         localStorage.setItem(STORAGE_KEY, expiry.toString());
         setIsOpen(false);
     };
@@ -51,11 +51,11 @@ export default function NoticePopup() {
                 {/* Action Bar */}
                 <div className="flex items-center justify-between px-6 py-4 bg-slate-900 text-white border-t border-slate-800">
                     <button
-                        onClick={hideFor7Days}
+                        onClick={hideFor24Hours}
                         className="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors flex items-center gap-2"
                     >
                         <span className="w-4 h-4 border border-white/30 rounded flex items-center justify-center text-[10px]">✓</span>
-                        7일간 보지 않기
+                        24시간 동안 보지 않기
                     </button>
                     <button
                         onClick={closePopup}
