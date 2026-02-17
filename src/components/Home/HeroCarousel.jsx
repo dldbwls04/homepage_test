@@ -58,18 +58,26 @@ const slides = [
 ];
 
 export default function HeroCarousel() {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(-1);
     const [isPaused, setIsPaused] = useState(false);
 
+    // Initial animation trigger
     useEffect(() => {
-        if (isPaused) return;
+        const timer = setTimeout(() => {
+            setCurrentSlide(0);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
+        if (isPaused || currentSlide === -1) return;
 
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 4000); // 4 seconds interval
 
         return () => clearInterval(timer);
-    }, [isPaused]);
+    }, [isPaused, currentSlide]);
 
     return (
         <section
