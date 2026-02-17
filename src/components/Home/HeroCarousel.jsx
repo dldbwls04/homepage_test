@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom';
 const slides = [
     {
         id: 1,
-        title: "학생 맞춤형 수준별 수업 시스템",
-        description: `모든 학생에게 같은 방식의 수업을 하지 않습니다.\n정확한 실력 진단을 통해 학생의 현재 수준과 약점을 분석하고,\n그에 맞는 맞춤 커리큘럼을 제공합니다.`,
+        title: "학생 맞춤형 수업 시스템",
+        description: <>
+            모든 학생에게 같은 방식의 수업을 하지 않습니다.<br />
+            정확한 실력 진단을 통해 <br className="md:hidden" />
+            학생의 현재 수준과 약점을 분석하고,<br />
+            그에 맞는 맞춤 커리큘럼을 제공합니다.
+        </>,
         bgClass: "from-[#0f172a] via-[#0f172a]/90 to-transparent",
         image: "/images/home/hero_personalized.png",
         tabTitle: "수준별 수업",
@@ -15,7 +20,7 @@ const slides = [
     {
         id: 2,
         title: "철저한 관리 중심 학습 지도",
-        description: `수학 실력은 관리에서 차이가 납니다.\n숙제 검사, 오답 분석, 반복 학습까지 체계적으로 관리하고,\n매 수업마다 학습 상태를 점검하며\n필요한 부분은 즉시 보완하여 학습 공백을 최소화합니다.`,
+        description: `수학 실력은 관리에서 차이가 납니다.\n숙제, 오답 분석, 반복 학습까지 체계적으로 관리하고,\n매 수업마다 학습 상태를 점검하며\n필요한 부분은 즉시 보완하여 학습 공백을 최소화합니다.`,
         bgClass: "from-[#0f172a] via-[#0f172a]/90 to-transparent",
         image: "/images/home/hero_management.png",
         tabTitle: "관리 중심 학습",
@@ -23,8 +28,14 @@ const slides = [
     },
     {
         id: 3,
-        title: "학교별 내신 집중 대비 프로그램",
-        description: `인근 학교들의 시험 경향을 분석하여\n학교별 맞춤 내신 대비 수업을 진행합니다.\n기출 문제 분석, 예상 문제 훈련, 시험 전략 지도까지\n실제 시험에서 점수로 이어지는 실전 중심 수업을 제공합니다.`,
+        title: "학교별 내신 집중 대비 수업",
+        description: <>
+            인근 학교들의 시험 경향을 분석하여<br />
+            학교별 맞춤 내신 대비 수업을 진행합니다.<br />
+            기출 문제 분석, 예상 문제 훈련, 시험 전략 지도까지<br />
+            실제 시험에서 점수로 이어지는 <br className="md:hidden" />
+            실전 중심 수업을 제공합니다.
+        </>,
         bgClass: "from-[#0f172a] via-[#0f172a]/90 to-transparent",
         image: "/images/home/hero_examprep.png",
         tabTitle: "내신 집중 대비",
