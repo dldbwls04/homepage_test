@@ -111,17 +111,17 @@ export default function HeroCarousel() {
                         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-black/10 rounded-tr-full"></div>
 
                         {/* Content Container */}
-                        <div className="relative h-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-center items-center md:items-start">
+                        <div className="relative h-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-center items-start">
                             <div className="max-w-3xl">
                                 <h1
-                                    className={`text-3xl md:text-[32px] lg:text-[34px] font-bold md:font-normal mb-6 md:mb-8 tracking-tight leading-tight text-slate-100 text-center md:text-left whitespace-pre-line drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] transition-all duration-1000 ease-out transform ${currentSlide === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                                    className={`text-3xl md:text-[32px] lg:text-[34px] font-bold md:font-normal mb-6 md:mb-8 tracking-tight leading-tight text-slate-100 text-left whitespace-pre-line drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] transition-all duration-1000 ease-out transform ${currentSlide === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                         }`}
                                     style={{ transitionDelay: '400ms' }}
                                 >
                                     {slide.title}
                                 </h1>
                                 <p
-                                    className={`text-sm md:text-[15px] font-light text-slate-100/80 mb-8 md:mb-10 whitespace-pre-line leading-relaxed border-l-0 md:border-l-4 border-[#fbbf24] pl-0 md:pl-6 text-center md:text-left transition-all duration-1000 ease-out transform ${currentSlide === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                                    className={`text-sm md:text-[15px] font-light text-slate-100/80 mb-8 md:mb-10 whitespace-pre-line leading-relaxed border-l-4 border-[#fbbf24] pl-6 text-left transition-all duration-1000 ease-out transform ${currentSlide === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                         }`}
                                     style={{ transitionDelay: '800ms' }}
                                 >
@@ -129,11 +129,11 @@ export default function HeroCarousel() {
                                 </p>
 
                                 <div
-                                    className={`flex justify-center md:justify-start transition-all duration-1000 ease-out transform ${currentSlide === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                                    className={`flex justify-start transition-all duration-1000 ease-out transform ${currentSlide === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                         }`}
                                     style={{ transitionDelay: '1100ms' }}
                                 >
-                                    <Link to="/contact/counseling" className="px-5 md:px-6 py-2.5 md:py-3 bg-[#fbbf24] hover:bg-[#f59e0b] text-[#1e3a8a] font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center group text-xs md:text-sm">
+                                    <Link to="/contact/counseling" className="px-5 md:px-6 py-2.5 md:py-3 bg-[#fbbf24] hover:bg-[#f59e0b] text-[#1e3a8a] font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center justify-center md:justify-start group text-xs md:text-sm">
                                         상담 신청하기 <ChevronRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
@@ -151,7 +151,7 @@ export default function HeroCarousel() {
                             <button
                                 key={slide.id}
                                 onClick={() => setCurrentSlide(index)}
-                                className={`flex-1 relative py-4 px-4 text-left transition-all duration-300 border-t-4 ${index !== slides.length - 1 ? "after:content-[''] after:absolute after:right-0 after:top-4 after:bottom-4 after:w-px after:bg-white/20" : ''} ${currentSlide === index
+                                className={`flex-1 relative py-4 px-4 text-center md:text-left transition-all duration-300 border-t-4 ${index !== slides.length - 1 ? "after:content-[''] after:absolute after:right-0 after:top-4 after:bottom-4 after:w-px after:bg-white/20" : ''} ${currentSlide === index
                                     ? 'bg-white/5 border-[#fbbf24] text-white'
                                     : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5'
                                     }`}
