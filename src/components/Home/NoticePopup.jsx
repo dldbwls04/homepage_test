@@ -30,14 +30,6 @@ export default function NoticePopup() {
     return (
         <div className="absolute inset-x-0 top-10 z-[100] flex items-start justify-center p-4 animate-in fade-in duration-500 pointer-events-none">
             <div className="relative bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] max-w-lg w-full overflow-hidden animate-in zoom-in-95 slide-in-from-top-10 duration-500 pointer-events-auto">
-                {/* Close Button (Top Corner) */}
-                <button
-                    onClick={closePopup}
-                    className="absolute top-4 right-4 z-10 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full transition-colors"
-                >
-                    <X size={20} />
-                </button>
-
                 {/* Poster Content */}
                 <a
                     href="https://blog.naver.com/eaglescience/224158885650"
