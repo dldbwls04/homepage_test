@@ -93,9 +93,9 @@ export default function Programs() {
                 </div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span className="inline-block px-3 py-1 bg-[#fbbf24] text-[#0f172a] text-[10px] font-black rounded-full mb-4 tracking-widest uppercase">Programs</span>
-                    <h1 className="text-2xl md:text-4xl font-extrabold mb-4 leading-tight">
+                    <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
                         입시 수학의 정점,<br />
-                        <span className="text-[#fbbf24] font-extrabold">독수리수학</span> 프로그램
+                        <span className="text-[#fbbf24] font-bold">독수리수학</span> 프로그램
                     </h1>
                     <p className="text-slate-400 text-base max-w-2xl mx-auto font-medium leading-relaxed">
                         분야별 전문 강사진의 분석과 성과로 증명하는<br className="md:hidden" /> 최적화된 커리큘럼
