@@ -57,6 +57,7 @@ const navItems = [
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
     const location = useLocation();
 
     // Close menu when route changes
