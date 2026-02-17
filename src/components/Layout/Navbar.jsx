@@ -107,10 +107,10 @@ export default function Navbar() {
         <nav className="bg-white border-b border-slate-100 shadow-sm fixed w-full top-0 z-50">
             {/* Top Navy Blue Line Decoration */}
             <div className="h-1 w-full bg-[#172554]"></div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div className="flex justify-between h-14 lg:h-20">
                     {/* Logo */}
-                    <div className="flex-shrink-0 flex items-center">
+                    <div className="flex-shrink-0 flex items-center md:static absolute left-1/2 -translate-x-1/2 h-14 lg:h-auto md:left-0 md:translate-x-0">
                         <Link to="/" className="flex items-center space-x-2">
                             <img src="/logo_new.png" alt="독수리수학" className="h-8 lg:h-12 w-auto" />
                         </Link>
@@ -215,7 +215,7 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <div
-                        className="lg:hidden flex items-center"
+                        className="lg:hidden flex items-center ml-auto"
                         onMouseEnter={() => setIsMenuOpen(true)}
                     >
                         <button
