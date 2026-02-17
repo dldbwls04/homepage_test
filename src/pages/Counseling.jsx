@@ -82,7 +82,7 @@ export default function Counseling() {
             <div className="max-w-5xl mx-auto">
                 {/* Heading */}
                 <div className="mb-12 text-center md:text-left">
-                    <h1 className="text-4xl font-extrabold text-slate-900 mb-4">입력사항</h1>
+                    <h1 className="text-3xl font-bold text-slate-900 mb-4">입력사항</h1>
                     <p className="text-slate-500 font-medium">
                         더 나은 상담을 위해 아래 정보를 정확히 입력해 주세요.<br className="md:hidden" /> ( <span className="text-red-500 font-bold">*</span> 은 필수 입력 항목입니다 )
                     </p>

@@ -29,7 +29,7 @@ const navItems = [
         path: "/high-school",
         icon: <BookOpen size={18} />,
         submenu: [
-            { title: "2028대입", path: "/high-school/2028-admission" },
+            { title: "2028 대입", path: "/high-school/2028-admission" },
             { title: "입시프로그램", path: "/high-school/programs" },
         ]
     },
