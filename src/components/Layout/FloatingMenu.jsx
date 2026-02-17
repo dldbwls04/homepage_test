@@ -8,11 +8,12 @@ export default function FloatingMenu() {
     const [scrollDir, setScrollDir] = useState(0); // -1 for up, 1 for down
 
     useEffect(() => {
-        // Entry animation delay
-        const timer = setTimeout(() => setIsMounted(true), 100);
+        // Entry animation delay - longer delay so it's noticed after page load
+        const timer = setTimeout(() => setIsMounted(true), 800);
 
         let lastScrollY = window.pageYOffset;
         let ticking = false;
+        let stopTimer = null;
 
         const handleScroll = () => {
             if (!ticking) {
@@ -26,15 +27,17 @@ export default function FloatingMenu() {
                         setIsVisible(false);
                     }
 
-                    // Inertia/Following effect
-                    if (currentScrollY > lastScrollY) {
-                        setScrollDir(1); // Scrolling down
-                    } else if (currentScrollY < lastScrollY) {
-                        setScrollDir(-1); // Scrolling up
+                    // Inertia/Following effect - dynamic offset
+                    const diff = currentScrollY - lastScrollY;
+                    if (Math.abs(diff) > 2) {
+                        // Limit the max movement magnitude
+                        const moveAmount = Math.max(-40, Math.min(40, diff * 0.5));
+                        setScrollDir(moveAmount);
                     }
 
-                    // Reset direction after stop
-                    setTimeout(() => setScrollDir(0), 100);
+                    // Smoothly reset direction after stop
+                    if (stopTimer) clearTimeout(stopTimer);
+                    stopTimer = setTimeout(() => setScrollDir(0), 150);
 
                     lastScrollY = currentScrollY;
                     ticking = false;
@@ -47,6 +50,7 @@ export default function FloatingMenu() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
             clearTimeout(timer);
+            if (stopTimer) clearTimeout(stopTimer);
         };
     }, []);
 
@@ -57,11 +61,11 @@ export default function FloatingMenu() {
     ];
 
     return (
-        <div className={`fixed right-0 top-1/2 z-[60] hidden lg:flex flex-col items-end transition-all duration-700 ease-out ${isMounted ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+        <div className={`fixed right-0 top-1/2 z-[60] hidden lg:flex flex-col items-end transition-all duration-1000 cubic-bezier(0.34, 1.56, 0.64, 1) ${isMounted ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
-                transform: `translateY(calc(-50% + ${scrollDir * 15}px))`,
-                transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.7s ease-out'
+                transform: `translateY(calc(-50% + ${scrollDir}px))`,
+                transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s cubic-bezier(0.34, 1.56, 0.64, 1)'
             }}>
             <div className="flex flex-col bg-white shadow-[-10px_0_30px_rgba(30,58,138,0.1)] border border-slate-200 rounded-l-2xl overflow-hidden">
                 {menuItems.map((item, index) => (
