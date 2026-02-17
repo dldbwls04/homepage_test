@@ -19,8 +19,7 @@ const steps = [
         title: "상담 신청",
         subtitle: "Consultation Request",
         icon: <PhoneCall size={28} />,
-        description: "홈페이지의 상담 신청 폼을 작성하시거나 학원으로 직접 전화(02-1234-5678)를 주시면 접수가 완료됩니다.",
-        details: ["홈페이지 또는 전화 상담 신청", "방문 가능한 일정 조율"],
+        description: "홈페이지의 상담 신청 폼을 작성하시거나 학원으로 직접 전화(010-8229-7963)를 주시면 접수가 완료됩니다.",
         color: "bg-blue-600"
     },
     {
@@ -29,7 +28,6 @@ const steps = [
         subtitle: "Level Test & Guidance",
         icon: <ClipboardCheck size={28} />,
         description: "학생의 현재 학습 상태 및 취약 영역에 대한 정밀 테스트를 진행하며, 결과에 따른 맞춤형 학습 진단과 수강 가능한 반을 안내해 드립니다.",
-        details: ["현재 학습 수준 및 취약영역 진단", "맞춤형 학습 로드맵 제안", "입학 가능 반 배정"],
         color: "bg-indigo-600"
     },
     {
@@ -37,8 +35,7 @@ const steps = [
         title: "수강 등록",
         subtitle: "Registration",
         icon: <CreditCard size={28} />,
-        description: "상담을 통해 결정된 반에 대해 수강료를 납부하시면 정식 등록이 완료됩니다.",
-        details: ["신용카드 결제 가능", "계좌이체 납부"],
+        description: "상담을 통해 결정된 반에 대해 수강료를 납부하시면 정식 등록이 완료됩니다. 신용카드 및 계좌이체 등 다양한 결제 수단을 지원합니다.",
         color: "bg-slate-800"
     },
     {
@@ -47,7 +44,6 @@ const steps = [
         subtitle: "Textbook Purchase",
         icon: <ShoppingBag size={28} />,
         description: "배정된 반의 수준에 맞는 전담 교재를 수강 시작 전일까지 온라인 또는 인근 서점을 통해 구입하시기 바랍니다.",
-        details: ["배정된 반 수준에 맞는 교재 안내", "수강 시작 전일까지 구입 완료"],
         color: "bg-blue-500"
     },
     {
@@ -55,8 +51,7 @@ const steps = [
         title: "오리엔테이션 및 수업 시작",
         subtitle: "First Class & OT",
         icon: <Flag size={28} />,
-        description: "첫 등원 시 학원 시설 및 시스템에 대한 오리엔테이션을 진행한 후 배정된 반에서 본격적인 수업을 시작하게 됩니다.",
-        details: ["학원 생활 및 관리 시스템 안내", "정규 수업 시작", "개 개별 맞춤 클리닉 배정"],
+        description: "첫 등원 시 학원 시설 및 시스템에 대한 오리엔테이션을 진행한 후 배정된 반에서 본격적인 수업을 시작하게 됩니다. 개별 맞춤 클리닉 배정도 함께 이루어집니다.",
         color: "bg-blue-700"
     }
 ];
@@ -112,32 +107,26 @@ export default function Admission() {
             {/* Detailed Content Section */}
             <section className="py-24">
                 <div className="max-w-4xl mx-auto px-4">
-                    <div className="space-y-12">
+                    <div className="space-y-16">
                         {steps.map((step) => (
                             <div key={step.id} className="flex flex-col md:flex-row gap-8 md:gap-16 items-start group">
-                                <div className="flex-shrink-0 flex md:flex-col items-center gap-4">
-                                    <div className={`w-14 h-14 rounded-2xl ${step.color} bg-opacity-10 text-slate-900 border border-slate-200 flex items-center justify-center font-black text-xl group-hover:bg-opacity-100 group-hover:text-white transition-all duration-300`}>
-                                        {step.id}
+                                <div className="flex-shrink-0 flex md:flex-col items-center">
+                                    <div className={`w-16 h-16 rounded-2xl ${step.color} bg-opacity-10 text-slate-900 border border-slate-200 flex items-center justify-center group-hover:bg-opacity-100 group-hover:text-white transition-all duration-300`}>
+                                        {React.cloneElement(step.icon, { size: 32 })}
                                     </div>
-                                    <div className="md:w-px md:h-full bg-slate-100 hidden md:block mt-4 min-h-[100px]" />
+                                    <div className="md:w-px md:h-full bg-slate-100 hidden md:block mt-6 min-h-[60px]" />
                                 </div>
 
-                                <div className="flex-grow pt-2">
-                                    <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-4 flex items-center">
-                                        {step.title}
-                                        <span className="ml-3 text-xs md:text-sm font-bold text-slate-300 uppercase tracking-widest">{step.subtitle}</span>
-                                    </h4>
-                                    <p className="text-slate-600 text-sm md:text-base font-medium leading-relaxed mb-6">
+                                <div className="flex-grow">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <span className={`text-xs font-black px-2 py-0.5 rounded ${step.color} text-white`}>STEP 0{step.id}</span>
+                                        <h4 className="text-xl md:text-2xl font-black text-slate-900">
+                                            {step.title}
+                                        </h4>
+                                    </div>
+                                    <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed">
                                         {step.description}
                                     </p>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        {step.details.map((detail, dIdx) => (
-                                            <div key={dIdx} className="flex items-center space-x-3 bg-slate-50 p-4 rounded-xl border border-slate-100/50">
-                                                <div className="text-blue-600"><CheckCircle2 size={16} /></div>
-                                                <span className="text-xs md:text-sm font-black text-slate-700">{detail}</span>
-                                            </div>
-                                        ))}
-                                    </div>
                                 </div>
                             </div>
                         ))}
